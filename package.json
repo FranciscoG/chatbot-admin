@@ -16,8 +16,9 @@
     "url": "https://github.com/FranciscoG/chatbot-admin/issues"
   },
   "homepage": "https://github.com/FranciscoG/chatbot-admin#readme",
-  "devDependencies": {
+  "dependencies": {
     "hapi": "^15.2.0",
-    "pm2": "^2.1.5"
+    "pm2": "^2.1.5",
+    "bunyan": "^1.8.5"
   }
 }
