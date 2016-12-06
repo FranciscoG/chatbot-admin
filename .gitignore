@@ -1,3 +1,5 @@
+.DS_Store
+
 # Logs
 logs
 *.log
@@ -45,3 +47,6 @@ jspm_packages
 
 # Yarn Integrity file
 .yarn-integrity
+
+private/*.js
+private/*.json
