@@ -5,11 +5,14 @@ var Joi = require('joi');
 
 module.exports = function(server) {
   
-  const handler = function(req, reply) {
+  const handler = function(request, reply) {
 
-    if (req.payload.code === 'test') {
-      req.session.isLoggedIn = true;
-      reply( 'yes' );
+    if (request.payload.code === server.config.onepass) {
+      request.yar.set('isLoggedIn', 'true' );
+      reply( 'success' );
+    } else {
+      request.yar.set('isLoggedIn', 'false' );
+      reply('fail');
     }
   };
 
