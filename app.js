@@ -7,7 +7,6 @@ const config  = require( process.cwd() + '/private/config.js' );
 const db = require( process.cwd() + '/server/db.js');
 
 const server = new Hapi.Server();
-server.log = log;
 
 server.connection({
   port: 8080,
@@ -38,6 +37,9 @@ server.register({
 // add our config to the server object
 server.decorate( 'server', 'config', config );
 
+// add our logging to the server object
+server.decorate( 'server', 'logger', log ); 
+
 // load all our routes
 var routes = require( process.cwd() + '/server/routes/index.js' )(server);
 
@@ -46,7 +48,7 @@ server.start((err) => {
   if (err) {
       throw err;
   }
-  log.info(`Server running at: ${server.info.uri}`);
+  server.logger.info(`Server running at: ${server.info.uri}`);
 });
 
 function disconnect(err){

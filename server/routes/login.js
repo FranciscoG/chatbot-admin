@@ -1,32 +1,18 @@
 'use strict';
 const pug = require('pug');
-var Joi = require('joi');
-
 
 module.exports = function(server) {
-  
-  const handler = function(request, reply) {
 
-    if (request.payload.code === server.config.onepass) {
-      request.yar.set('isLoggedIn', 'true' );
-      reply( 'success' );
-    } else {
-      request.yar.set('isLoggedIn', 'false' );
-      reply('fail');
-    }
+  const loginPage = pug.compileFile(process.cwd() + '/server/views/login.pug');
+
+  const handler = function (request, reply) {
+    return reply(loginPage());
   };
 
   return server.route({
-    method: 'POST',
+    method: 'GET',
     path: '/login',
-    config : {
-      handler: handler,
-      validate: {
-        payload: {
-          code: Joi.string().required(),
-        }
-      }
-    }
+    handler: handler
   });
 
 };

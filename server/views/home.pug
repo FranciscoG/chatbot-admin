@@ -1,4 +1,23 @@
 extends ./layout/default.pug
 
 block content
-  h1 All hail the home page
+  h1 Trigger updating
+
+  label find trigger
+    input#code(type="text", name="trigger")
+  
+  button#submit_find search
+
+  pre
+    code#find_results
+
+
+  #update_section(style="display:none")
+    input#triggerObj(type="hidden", name="triggerObj", value="")
+
+    label update trigger
+      input#triggerText(type="text", name="triggerText")
+
+    button#submit_up update
+
+  p#update_result
