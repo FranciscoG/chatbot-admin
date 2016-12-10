@@ -5,12 +5,31 @@ html(class="no-js", lang="en")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     title chatbot admin
     meta(name="viewport", content="width=device-width, initial-scale=1")
+    link(rel="stylesheet", href="/css/darkly-bs.min.css")
+    link(rel="stylesheet", href="/css/main.css")
 
   body
-    .container
-    
-      main
-        block content
+    nav.navbar.navbar-default
+        ul.nav.navbar-nav
+          li.active
+            a(href="/") Triggers
+          li
+            a(href="/admin") Reboot
+          li
+            a#logout(href="#") Logout
+
+
+
+    .container-fluid
+      .row
+        .col-xs-12.col-md-8
+          block content
+
+          .alert.alert-success(style="display:none")
+          .alert.alert-info(style="display:none")
+          .alert.alert-warning(style="display:none")
+          .alert.alert-danger(style="display:none")
+
 
     script(src="/js/jquery-3.1.1.min.js")
     script(src="/js/main.js")

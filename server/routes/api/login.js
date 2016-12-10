@@ -1,5 +1,4 @@
 'use strict';
-const pug = require('pug');
 var Joi = require('joi');
 
 

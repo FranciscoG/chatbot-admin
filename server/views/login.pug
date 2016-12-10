@@ -1,6 +1,9 @@
 extends ./layout/default.pug
 
 block content
-  h1 login
-    input#code(type="password", name="code")
-    button#submit submit
+
+  .form-group
+    label Login
+    input.form-control#code(type="password", name="code")
+  
+  button#submit_login.btn.btn-default submit

@@ -1,23 +1,35 @@
 extends ./layout/default.pug
 
 block content
-  h1 Trigger updating
+  p Find and update triggers here
 
-  label find trigger
-    input#code(type="text", name="trigger")
-  
-  button#submit_find search
+  .well
+    form.form-horizontal
+      fieldset
+        .form-group
+          label find trigger
+          input.form-control#code(type="text", name="trigger")
+        
+        .form-group
+          button#submit_find.btn.btn-primary search
 
-  pre
+  pre(style="display:none")
     code#find_results
 
 
-  #update_section(style="display:none")
-    input#triggerObj(type="hidden", name="triggerObj", value="")
+  #update_section.well(style="display:none")
+    form.form-horizontal
+      input#triggerObj(type="hidden", name="triggerObj", value="")
 
-    label update trigger
-      input#triggerText(type="text", name="triggerText")
+      fieldset
+        .form-group
+          label update trigger
+          textarea#triggerText.form-control(type="text", name="triggerText")
+          .help-text.
+            <code>%me%</code> - when you want the trigger to include the username of the person who triggered it<br>
+            <code>%dj%</code> - when you want the trigger to include the current DJ's username
 
-    button#submit_up update
+        .form-group
+          button#submit_up.btn.btn-warning update
 
   p#update_result

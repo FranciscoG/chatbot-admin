@@ -18,11 +18,11 @@ module.exports =  {
         Trigger: data[key].Trigger,
         status: 'updated',
         lastUpdated : Date.now(),
-        createdOn : data[key].createdOn,
-        createdBy : data[key].createdBy
+        createdOn : data[key].createdOn || null,
+        createdBy : data[key].createdBy || 'unknown'
       };
 
-      return server.db.ref('triggers/'+key).set(data[key]);
+      return server.db.ref('triggers/'+key).set(updateObj);
     }
 
 };

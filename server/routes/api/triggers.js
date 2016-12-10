@@ -1,5 +1,4 @@
 'use strict';
-const pug = require('pug');
 var Joi = require('joi');
 const trigger = require(process.cwd() + '/server/triggers.js');
 
@@ -37,7 +36,6 @@ module.exports = function(server) {
   const triggerUpdateHandler = function(request, reply) {
     
     var data = JSON.parse(request.payload.triggerObj);
-    console.log(request.payload.triggerText, data);
     
     trigger.update(server, request.payload.triggerText, data)
       .then( function(snapshot) {

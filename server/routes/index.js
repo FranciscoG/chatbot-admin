@@ -29,7 +29,10 @@ module.exports = function(server) {
         isLoggedIn = isLoggedIn === 'false' ? false : isLoggedIn;
 
         // only return 401 on api routes
-        if (request.route.path.indexOf('/api') === 0) {
+        // disregard login and logout, those should be public
+        if (request.route.path.indexOf('/api') === 0 && 
+            request.route.path !== '/api/login' &&
+            request.route.path !== '/api/logout') {
           if (!isLoggedIn) {
             return reply(Boom.unauthorized('unauthorized request'));
           } else {
@@ -44,7 +47,7 @@ module.exports = function(server) {
         
         // redirect to login on all other pages
         if (!isLoggedIn) {
-          reply.redirect('/login');
+          return reply.redirect('/login');
         } else {
           return reply.continue();
         }
@@ -58,6 +61,7 @@ module.exports = function(server) {
 
   // api routes
   var api_login = require(process.cwd() + '/server/routes/api/login.js')(server);
+  var api_logout = require(process.cwd() + '/server/routes/api/logout.js')(server);
   var api_triggers = require(process.cwd() + '/server/routes/api/triggers.js')(server);
 
 };
