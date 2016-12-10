@@ -2,6 +2,8 @@
 
 $('#submit_login').on('click', function(e){
   e.preventDefault();
+  $('.alert').hide().text('');
+  
   $.ajax({
     url : 'api/login',
     method: 'POST',
@@ -53,6 +55,7 @@ $('#submit_up').on('click', function(e){
   e.preventDefault();
   var trigText = $('#triggerText').val();
   var trigObj = $('#triggerObj').val();
+  $('.alert').hide().text('');
   
   $.ajax({
     url : 'api/trigger/update',
@@ -66,6 +69,8 @@ $('#submit_up').on('click', function(e){
     if (data === 'success') {
       $('#trigObj').text(data);
       $('.alert-success').text('Successfully updated trigger').show();
+    } else {
+      $('.alert-danger').text('Error updating trigger').show();
     }
   });
 

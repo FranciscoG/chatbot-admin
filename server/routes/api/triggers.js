@@ -15,7 +15,8 @@ module.exports = function(server) {
         var val = snapshot.val();
         reply(val || 0);
       })
-      .catch(function(){
+      .catch(function(err){
+        server.logger.error(err);
         reply(0);
       });
   };
@@ -41,7 +42,8 @@ module.exports = function(server) {
       .then( function(snapshot) {
         reply('success');
       })
-      .catch(function(){
+      .catch(function(err){
+        server.logger.error(err);
         reply('fail');
       });
   };
