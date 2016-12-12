@@ -8,10 +8,7 @@ const db = require( process.cwd() + '/server/db.js');
 
 const server = new Hapi.Server();
 
-server.connection({
-  port: 8080,
-  host: '127.0.0.1'
-});
+server.connection(config.connection);
 
 // register plugin so I can display static content
 server.register(Inert, () => {});

@@ -50,3 +50,4 @@ jspm_packages
 
 private/*.js
 private/*.json
+!private/config.example.js
