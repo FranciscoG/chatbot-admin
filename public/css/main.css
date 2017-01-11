@@ -20,3 +20,16 @@
   display: table-cell;
   padding: 3px;
 }
+
+.trigger {
+  cursor: pointer;
+}
+
+.log-header {
+  margin-top: 2em;
+}
+
+#log {
+  background-color: black;
+  padding: 10px;
+}

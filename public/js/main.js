@@ -99,6 +99,10 @@ var site = {
 
     var triggerList = new List('trigger-list', options);
 
+    $('body').on('click', '.trigger', function(e){
+      $('.update_search').val($(this).text());
+    });
+
   },
 
   /****************************************************************

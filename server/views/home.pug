@@ -12,7 +12,7 @@ block content
       fieldset
         .form-group
           label enter name of trigger you would like to update
-          input.form-control#code(type="text", name="trigger")
+          input.form-control.update_search#code(type="text", name="trigger")
         
         .form-group
           button#submit_find.btn.btn-primary search
@@ -31,7 +31,9 @@ block content
           textarea#triggerText.form-control(type="text", name="triggerText")
           .help-text.
             <code>%me%</code> - when you want the trigger to include the username of the person who triggered it<br>
-            <code>%dj%</code> - when you want the trigger to include the current DJ's username
+            <code>%dj%</code> - when you want the trigger to include the current DJ's username<br>
+            <code>+prop</code> - to make the trigger add a prop point to the current DJ<br>
+            <code>+flow</code> - to make the trigger add a flow point to the current DJ
 
         .form-group
           button#submit_up.btn.btn-warning update
@@ -40,7 +42,7 @@ block content
 
   #trigger-list
     .form-group
-      label fuzzy search trigger
+      label triggers fuzzy search
       input.form-control(type="text", class="fuzzy-search")
     ul.list.
       !{allTrigs}
