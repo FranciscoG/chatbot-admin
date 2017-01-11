@@ -1,18 +1,22 @@
 'use strict';
 var Joi = require('joi');
-
+var bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 module.exports = function(server) {
   
   const handler = function(request, reply) {
-
-    if (request.payload.code === server.config.onepass) {
-      request.yar.set('isLoggedIn', 'true' );
-      reply( 'success' );
-    } else {
-      request.yar.set('isLoggedIn', 'false' );
-      reply('fail');
-    }
+    
+    // Load hash from your password DB.
+    bcrypt.compare(request.payload.code, server.config.onepass, function(err, res) {
+      if (res === true) {
+        request.yar.set('isLoggedIn', 'true' );
+        reply( 'success' );
+      } else {
+        request.yar.set('isLoggedIn', 'false' );
+        reply('fail');
+      }
+    });
   };
 
   return server.route({

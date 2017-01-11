@@ -6,4 +6,15 @@ block vars
 
 block content
 
-  p nothing to see here yet
+  ul
+    li 
+      span unstable_restarts: #{unstable_restarts}
+    li 
+      span restart_time: #{restart_time}
+    li 
+      span pm_uptime: #{pm_uptime}
+    li 
+      span status: #{status}
+
+  p Log output
+  #log

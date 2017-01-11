@@ -11,7 +11,7 @@ block content
     form.form-horizontal
       fieldset
         .form-group
-          label find trigger
+          label enter name of trigger you would like to update
           input.form-control#code(type="text", name="trigger")
         
         .form-group
@@ -37,3 +37,11 @@ block content
           button#submit_up.btn.btn-warning update
 
   p#update_result
+
+  #trigger-list
+    .form-group
+      label fuzzy search trigger
+      input.form-control(type="text", class="fuzzy-search")
+    ul.list.
+      !{allTrigs}
+    ul.pagination

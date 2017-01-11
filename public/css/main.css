@@ -6,3 +6,17 @@
     color: #ffffff;
     background-color: #28415b;
 }
+
+.list {
+  list-style-type: none;
+  display: table;
+}
+
+.list li {
+  display: table-row;
+}
+
+.list li span {
+  display: table-cell;
+  padding: 3px;
+}

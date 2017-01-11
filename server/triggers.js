@@ -9,6 +9,12 @@ module.exports =  {
         .once('value');
     },
 
+    getAll : function(server) {
+      return server.db.ref('triggers')
+        .orderByChild('Trigger')
+        .once('value');
+    },
+
     update : function(server, newText, data) {
       var key = Object.keys(data)[0];
 
