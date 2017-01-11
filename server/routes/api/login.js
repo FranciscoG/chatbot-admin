@@ -8,7 +8,7 @@ module.exports = function(server) {
   const handler = function(request, reply) {
     
     // Load hash from your password DB.
-    bcrypt.compare(request.payload.code, server.config.onepass, function(err, res) {
+    bcrypt.compare(request.payload.code, server.config.hash, function(err, res) {
       if (res === true) {
         request.yar.set('isLoggedIn', 'true' );
         reply( 'success' );

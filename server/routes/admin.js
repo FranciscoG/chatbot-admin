@@ -87,15 +87,3 @@ module.exports = function(server) {
   });
 
 };
-
-/*
-pm2_env:
-    { 
-       unstable_restarts: 0,
-       restart_time: 2,
-       pm_uptime: 1484075809852,
-       status: 'online',
-       pm_err_log_path: '/Users/francisco.gutierrez1/.pm2/logs/bot-error-0.log',
-       pm_out_log_path: '/Users/francisco.gutierrez1/.pm2/logs/bot-out-0.log',
-    }
- */
