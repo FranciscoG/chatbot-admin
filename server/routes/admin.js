@@ -66,6 +66,10 @@ module.exports = function(server) {
           return reply(admin({fail : 'true'}));
         }
 
+        if (!processDescription[0]) {
+          return reply(admin({fail : 'true'}));
+        }
+
         var outLogPath = processDescription[0].pm2_env.pm_out_log_path;
         showLogs(outLogPath, server);
 
