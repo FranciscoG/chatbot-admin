@@ -44,7 +44,6 @@ module.exports = function(server) {
         reply(homePage());
       });
 
-    // return reply(homePage());
   };
 
   return server.route({

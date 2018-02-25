@@ -58,7 +58,7 @@ module.exports = function(server) {
   // pages
   var home = require(process.cwd() + '/server/routes/home.js')(server);
   var login = require(process.cwd() + '/server/routes/login.js')(server);
-  var admin = require(process.cwd() + '/server/routes/admin.js')(server);
+  var commands = require(process.cwd() + '/server/routes/commands.js')(server);
 
   // api routes
   var api_login = require(process.cwd() + '/server/routes/api/login.js')(server);
