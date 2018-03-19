@@ -5,11 +5,15 @@ module.exports = function(server) {
   
   // static content route
   server.route({
-      method: 'GET',
-      path: '/{param*}',
-      handler: {
-          directory: { path: './public', listing: false, index: true }
-      }
+    method: 'GET',
+    path: '/{param*}',
+    handler: {
+        directory: {
+            path: '.',
+            redirectToSlash: true,
+            index: true,
+        }
+    }
   });
 
   // Authentication pre-check on every request
@@ -18,7 +22,7 @@ module.exports = function(server) {
       method: function (request, reply) {
 
         // if request is a static content file then we also allow it
-        //console.log(request.response.variety, ':', request.response.source.path);
+        // console.log(request.response.variety, ':', request.response.source.path);
         if (request.response.variety === 'file') {
           return reply.continue();
         }
